@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SfDataGridExample.MainPage"
+             xmlns:syncfusion="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid"
+             xmlns:local="clr-namespace:SfDataGridExample">
+
+    <ContentPage.BindingContext>
+        <local:OrderInfoRepository x:Name="viewModel" />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <Grid RowDefinitions="Auto,*">
+            <HorizontalStackLayout Grid.Row="0" Spacing="10" Margin="10">
+                <Button Text="Visibility" Clicked="OnToggleColumnsClicked" />
+            </HorizontalStackLayout>
+
+            <syncfusion:SfDataGrid Grid.Row="1"
+                                   x:Name="dataGrid"
+                                   AutoGenerateColumnsMode="None"
+                                   FrozenColumnCount="4"
+                                   ItemsSource="{Binding OrderInfoCollection}">
+
+                <syncfusion:SfDataGrid.Columns>
+                    <syncfusion:DataGridNumericColumn HeaderText="Order ID" Format="0" MappingName="OrderID"/>
+                    <syncfusion:DataGridTextColumn HeaderText="Customer ID" MappingName="CustomerID" />
+                    <syncfusion:DataGridTextColumn HeaderText="Ship Country" MappingName="ShipCountry" />
+                    <syncfusion:DataGridTextColumn HeaderText="Customer" MappingName="Customer" />
+                    <syncfusion:DataGridTextColumn HeaderText="Ship City" MappingName="ShipCity" />
+                    <syncfusion:DataGridTextColumn HeaderText="Product Name" MappingName="ProductName" />
+                    <syncfusion:DataGridNumericColumn  HeaderText="Quantity" MappingName="Quantity" />
+                    <syncfusion:DataGridNumericColumn HeaderText="Unit Price" MappingName="UnitPrice" Format="C2" />
+                    <syncfusion:DataGridNumericColumn HeaderText="Discount" MappingName="Discount" Format="P0"/>
+                    <syncfusion:DataGridDateColumn HeaderText="Order Date" MappingName="OrderDate"/>
+                    <syncfusion:DataGridTextColumn HeaderText="Category" MappingName="Category" />
+                    <syncfusion:DataGridTextColumn HeaderText="Supplier" MappingName="Supplier" />
+                    <syncfusion:DataGridCheckBoxColumn HeaderText="Delivered" MappingName="IsDelivered" />
+                    <syncfusion:DataGridDateColumn HeaderText="Delivery Date" MappingName="DeliveryDate" />
+                    <syncfusion:DataGridTextColumn HeaderText="Payment Method" MappingName="PaymentMethod" />
+                    <syncfusion:DataGridNumericColumn HeaderText="Shipping Cost" MappingName="ShippingCost" Format="C2" />
+                    <syncfusion:DataGridTextColumn HeaderText="Tracking #" MappingName="TrackingNumber" />
+                    <syncfusion:DataGridTextColumn HeaderText="Warehouse" MappingName="WarehouseLocation" />
+                    <syncfusion:DataGridTextColumn HeaderText="Sales Person" MappingName="SalesPerson" />
+                    <syncfusion:DataGridTextColumn HeaderText="Notes" MappingName="Notes" />
+                </syncfusion:SfDataGrid.Columns>
+
+            </syncfusion:SfDataGrid>
+        </Grid>
+    </ContentPage.Content>
+
+</ContentPage>
